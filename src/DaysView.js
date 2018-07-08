@@ -1,4 +1,5 @@
-'use strict';
+﻿'use strict';
+//test
 
 var React = require('react'),
 	createClass = require('create-react-class'),
