@@ -128,7 +128,9 @@ var DateTimePickerDays = onClickOutside( createClass({
 
 		return React.createElement('tfoot', { key: 'tf'},
 			React.createElement('tr', {},
-				React.createElement('td', { onClick: this.props.showView( 'time' ), colSpan: 7, className: 'rdtTimeToggle' }, date.format( this.props.timeFormat ))
+				//React.createElement('td', { onClick: this.props.showView( 'time' ), colSpan: 7, className: 'rdtTimeToggle' }, date.format( this.props.timeFormat ))
+				React.createElement('td', { onClick: this.props.showView( 'time' ), colSpan: 7, className: 'rdtTimeToggle' }, 
+				React.createElement('span', { className: 'fa fa-clock-o'}, '' ))
 			)
 		);
 	},

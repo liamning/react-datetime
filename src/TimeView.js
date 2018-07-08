@@ -58,20 +58,20 @@ var DateTimePickerTime = onClickOutside( createClass({
 					value = 12;
 				}
 			}
-			return React.createElement('div', { key: type, className: 'rdtCounter' }, [
-				React.createElement('span', { key: 'up', className: 'glyphicon glyphicon-chevron-up', onMouseDown: this.onStartClicking( 'increase', type ), onContextMenu: this.disableContextMenu }, '' ),
+			return React.createElement('td', { key: type, className: 'rdtCounter' }, [
+				React.createElement('span', { key: 'up', className: 'rdtBtn fa fa-chevron-up', onMouseDown: this.onStartClicking( 'increase', type ), onContextMenu: this.disableContextMenu }, '' ),
 				React.createElement('div', { key: 'c', className: 'rdtCount' }, value ),
-				React.createElement('span', { key: 'do', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'decrease', type ), onContextMenu: this.disableContextMenu }, '▼' )
+				React.createElement('span', { key: 'do', className: 'rdtBtn fa fa-chevron-down', onMouseDown: this.onStartClicking( 'decrease', type ), onContextMenu: this.disableContextMenu }, '' )
 			]);
 		}
 		return '';
 	},
 
 	renderDayPart: function() {
-		return React.createElement('div', { key: 'dayPart', className: 'rdtCounter' }, [
-			React.createElement('span', { key: 'up', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'toggleDayPart', 'hours'), onContextMenu: this.disableContextMenu }, '▲' ),
+		return React.createElement('td', { key: 'dayPart', className: 'rdtCounter' }, [
+			React.createElement('span', { key: 'up', className: 'rdtBtn fa fa-chevron-up', onMouseDown: this.onStartClicking( 'toggleDayPart', 'hours'), onContextMenu: this.disableContextMenu }, '' ),
 			React.createElement('div', { key: this.state.daypart, className: 'rdtCount' }, this.state.daypart ),
-			React.createElement('span', { key: 'do', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'toggleDayPart', 'hours'), onContextMenu: this.disableContextMenu }, '▼' )
+			React.createElement('span', { key: 'do', className: 'rdtBtn fa fa-chevron-down', onMouseDown: this.onStartClicking( 'toggleDayPart', 'hours'), onContextMenu: this.disableContextMenu }, '' )
 		]);
 	},
 
@@ -82,7 +82,7 @@ var DateTimePickerTime = onClickOutside( createClass({
 
 		this.state.counters.forEach( function( c ) {
 			if ( counters.length )
-				counters.push( React.createElement('div', { key: 'sep' + counters.length, className: 'rdtCounterSeparator' }, ':' ) );
+				counters.push( React.createElement('td', { key: 'sep' + counters.length, className: 'rdtCounterSeparator' }, ':' ) );
 			counters.push( me.renderCounter( c ) );
 		});
 
@@ -91,9 +91,9 @@ var DateTimePickerTime = onClickOutside( createClass({
 		}
 
 		if ( this.state.counters.length === 3 && this.props.timeFormat.indexOf( 'S' ) !== -1 ) {
-			counters.push( React.createElement('div', { className: 'rdtCounterSeparator', key: 'sep5' }, ':' ) );
+			counters.push( React.createElement('td', { className: 'rdtCounterSeparator', key: 'sep5' }, ':' ) );
 			counters.push(
-				React.createElement('div', { className: 'rdtCounter rdtMilli', key: 'm' },
+				React.createElement('td', { className: 'rdtCounter rdtMilli', key: 'm' },
 					React.createElement('input', { value: this.state.milliseconds, type: 'text', onChange: this.updateMilli } )
 					)
 				);
@@ -102,9 +102,7 @@ var DateTimePickerTime = onClickOutside( createClass({
 		return React.createElement('div', { className: 'rdtTime' },
 			React.createElement('table', {}, [
 				this.renderHeader(),
-				React.createElement('tbody', { key: 'b'}, React.createElement('tr', {}, React.createElement('td', {},
-					React.createElement('div', { className: 'rdtCounters' }, counters )
-				)))
+				React.createElement('tbody', { key: 'b'}, React.createElement('tr', {}, counters))
 			])
 		);
 	},
@@ -157,7 +155,9 @@ var DateTimePickerTime = onClickOutside( createClass({
 
 		var date = this.props.selectedDate || this.props.viewDate;
 		return React.createElement('thead', { key: 'h' }, React.createElement('tr', {},
-			React.createElement('th', { className: 'rdtSwitch', colSpan: 4, onClick: this.props.showView( 'days' ) }, date.format( this.props.dateFormat ) )
+			//React.createElement('th', { className: 'rdtSwitch', colSpan: 4, onClick: this.props.showView( 'days' ) }, date.format( this.props.dateFormat ) )
+			React.createElement('th', { style:{ paddingLeft: '10px'}, className: 'rdtSwitch', colSpan: 4, onClick: this.props.showView( 'days' ) }, 
+			React.createElement('span', { className: 'fa fa-calendar'}, '' ) )
 		));
 	},
 
