@@ -59,7 +59,7 @@ var DateTimePickerTime = onClickOutside( createClass({
 				}
 			}
 			return React.createElement('div', { key: type, className: 'rdtCounter' }, [
-				React.createElement('span', { key: 'up', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'increase', type ), onContextMenu: this.disableContextMenu }, '▲' ),
+				React.createElement('span', { key: 'up', className: 'glyphicon glyphicon-chevron-up', onMouseDown: this.onStartClicking( 'increase', type ), onContextMenu: this.disableContextMenu }, '' ),
 				React.createElement('div', { key: 'c', className: 'rdtCount' }, value ),
 				React.createElement('span', { key: 'do', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'decrease', type ), onContextMenu: this.disableContextMenu }, '▼' )
 			]);
