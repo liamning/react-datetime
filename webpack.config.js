@@ -25,6 +25,8 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'moment': 'moment'
   },
+  
+
 
   plugins: plugins
 };
